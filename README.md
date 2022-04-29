@@ -1,19 +1,4 @@
 # WT-312, a MK-312 style driver on a stick!
-## About:
-This project aims to bring the hardware of e-stim/TENS to an easy-to-use module. Think: Sparkfun, Adafruit, DFRobot, etc.
-I build this project with the main goal of interfacing to an ESP32 processor so many of the documentation or some design decissions will be made towards this processor. But you should be able to use your own favorite MCU.
-
-This device tries to mimic the output stage of the well-known Erostec ET312 or better, the DIY reverse engineered MK-312. Hopefully by recreating this output stage, the same e-stim experience can be achieved as those devices.
-
-## Current project status:
-- ✅ Create V1.0 schematic+PCB
-- ✅ V1.0 Testing and debugging 
-- ✅ Commit V1.1 BOM patches
-- ✅ Create V2.0 Schematic
-- ✅ Route V2.0 PCB
-- 🟧 Review process (ongoing)
-- 🔲 Fix BOM with (available) alternative sources 
-- 🔲 Order new batch of V2.0 PCBs
 
 ## Theory of operation:
 ### Output stage:
@@ -55,13 +40,6 @@ Generating high-power pulses takes ... well ... power. These small 9V battery bl
 2 large electrolytic caps + a bunch of high value MLCC's will make sure that high current pulses to the primary can be delivered. The elco's can be mount sideways on the module to save some height.
 ### 4. LEDs
 In this new design the REF pin is not used anymore. To keep compatibility between the V1.0 and V2.0 footprint the same number of pins was kept. This pin is now connected to a LED on the board. This LED is 100% optional and does not have to be stuffed, the footprint can be left empty.
-
-
-## NodeMCU32s example (V1.0):
-This is an example on how to connect the WT-312 module to the ESP32. This configuration will work with the provided example firmware.
-![Connection example](/Documentation/ExampleCirctuitWithNodeMCU.png)
-
-
 
 ## Licence:
 All hardware design, software, images and documentation are licenced under the Creative Commons licence.

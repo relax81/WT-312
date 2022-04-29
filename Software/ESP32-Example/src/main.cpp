@@ -21,6 +21,7 @@ void errorloop();
 void setup() {
   pinMode(PIN_LED, OUTPUT);
   Serial.begin(115200);
+  delay(1000);
   if(!module1.init()) errorloop();
 
 
@@ -28,15 +29,17 @@ void setup() {
 }
 
 void loop() {
-  for(int intensity = 5; intensity <45; intensity+=5){
+  for(int intensity = 5; intensity <100; intensity+=5){
     module1.setIntensity(intensity);
     for(int pulseWidth = 100; pulseWidth < 300; pulseWidth+=25){
       module1.pulseTrain(pulseWidth, 100, 100);
-      //delay(500);
+      delay(100);
+      Serial.println("1");
     }
     for(int pulseWidth = 300; pulseWidth > 100; pulseWidth-=25){
       module1.pulseTrain(pulseWidth, 100, 100);
-      //delay(500);
+      delay(100);
+      Serial.println("2");
     }
     
   }
@@ -45,6 +48,7 @@ void loop() {
 void errorloop(){
   while (true)  //ERROR!
     {
+      Serial.println("error");
       digitalWrite(PIN_LED, HIGH);
       delay(100);
       digitalWrite(PIN_LED, LOW);
